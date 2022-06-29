@@ -27,12 +27,6 @@ const winMessage = function () {
   diceimg.parentNode.replaceChild(winMessageContent, diceimg);
 };
 
-const reset = function () {
-  let winMessageContent = document.createElement('h1');
-  winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
-  winMessageContent.parentNode.replaceChild(diceimg, winMessageContent);
-}
-
 let currentScore = 0;
 let activePlayer = 0;
 let gip = true;
@@ -103,5 +97,5 @@ btnHold.addEventListener('click', function () {
 btnNew.addEventListener('click', function () {
   const diceroll = Math.trunc(Math.random() * 6) + 1;
   diceimg.src = `dice-${diceroll}.png`;
-  diceimg.parentNode.ownerDocument()
+  reset()
 })
