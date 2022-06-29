@@ -21,8 +21,12 @@ const current0e = document.getElementById('current--0');
 
 const current1e = document.getElementById('current--1');
 
-const winner = document.querySelector('.final')
+const winner = document.querySelector('.final');
 
+
+let scores, gip, activePlayer, currentScore;
+
+diceimg.classList.add('hidden');
 
 
 const switchPlayer = function () {
@@ -34,41 +38,42 @@ const switchPlayer = function () {
 };
 
 const winMessage = function () {
-
-/* Not fully functional
+  /* Not fully functional
   let winMessageContent = document.createElement('h1');
   winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
   diceimg.parentNode.replaceChild(winMessageContent, diceimg);
 */
   // Alternative
-  winner.classList.remove('final')
-  winner.textContent = `🎉Player ${activePlayer + 1} Wins!`
-  diceimg.classList.add('final')
+  winner.classList.remove('final');
+  winner.textContent = `🎉Player ${activePlayer + 1} Wins!`;
+  diceimg.classList.add('final');
 };
 
 const gameReset = function () {
   // Starting conditions
 
-  const scores = [0, 0];
-  gip = true
-  activePlayer = 0
-  diceimg.classList.add('hidden');
+  scores = [0, 0];
+  gip = true;
+  activePlayer = 0;
+  currentScore = 0;
+
+  // diceimg.classList.add('hidden');
 
   score0e.textContent = 0;
   score1e.textContent = 0;
   current0e.textContent = 0;
   current1e.textContent = 0;
 
-  player0e.classList.remove('player--winner')
-  player1e.classList.remove('player--winner')
-  player0e.classList.add('player--active')
-  player1e.classList.remove('player--active')
+  player0e.classList.remove('player--winner');
+  player1e.classList.remove('player--winner');
+  player0e.classList.add('player--active');
+  player1e.classList.remove('player--active');
 
-  winner.classList.add('final')
-  diceimg.classList.remove('final')
-}
+  winner.classList.add('final');
+  diceimg.classList.remove('final');
+};
 
-
+gameReset()
 
 btnRoll.addEventListener('click', function () {
   if (gip) {
@@ -105,7 +110,7 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
-        winMessage();
+      winMessage();
     } else {
       // switch to next player
       switchPlayer();
@@ -113,9 +118,4 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-
-btnNew.addEventListener('click', function () {
-});
-// btnNew.addEventListener('click', function () {
-//   window.location.reload();
-// });
+btnNew.addEventListener('click', gameReset);
