@@ -21,10 +21,13 @@ const current0e = document.getElementById('current--0');
 
 const current1e = document.getElementById('current--1');
 
+
 const winMessage = function () {
-  let winMessageContent = document.createElement('h1');
-  winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
-  diceimg.parentNode.replaceChild(winMessageContent, diceimg);
+  // let winMessageContent = document.createElement('h1');
+  // winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
+  // diceimg.parentNode.replaceChild(winMessageContent, diceimg);
+
+  
 };
 
 let currentScore = 0;
@@ -82,7 +85,7 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
-      winMessage();
+        winMessage();
     } else {
       // switch to next player
       switchPlayer();
@@ -90,19 +93,20 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-btnNew.addEventListener('click', function () {
-  window.location.reload();
-});
-
 // btnNew.addEventListener('click', function () {
-score0e.textContent = 0;
-score1e.textContent = 0;
-current0e.textContent = 0;
-current1e.textContent = 0;
-document
-  .querySelector(`.player--${activePlayer}`)
-  .classList.remove('player--winner');
-document
-  .querySelector(`.player--${activePlayer}`)
-  .classList.remove('player--active');
-// })
+//   window.location.reload();
+// });
+
+btnNew.addEventListener('click', function () {
+  score0e.textContent = 0;
+  score1e.textContent = 0;
+  current0e.textContent = 0;
+  current1e.textContent = 0;
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--winner');
+  document
+    .querySelector(`.player--${activePlayer}`)
+    .classList.remove('player--active');
+  isReset = true
+});

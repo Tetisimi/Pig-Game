@@ -46,6 +46,10 @@ h1 {
   color: #a93048;
 }
 
+.final {
+  display: none;
+}
+
 h2 {
   position: absolute;
   top: 1%;
