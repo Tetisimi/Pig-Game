@@ -32,7 +32,7 @@ const winMessage = function () {
   winner.textContent = `🎉Player ${activePlayer + 1} Wins!`
   diceimg.classList.add('final')
 };
-
+ x
 let currentScore = 0;
 let activePlayer = 0;
 let gip = true;
