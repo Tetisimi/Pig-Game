@@ -90,8 +90,12 @@ btnHold.addEventListener('click', function () {
   }
 });
 
+// btnNew.addEventListener('click', function () {
+//   window.location.reload();
+// });
+
 btnNew.addEventListener('click', function () {
-  window.location.reload();
-});
-
-
+  const diceroll = Math.trunc(Math.random() * 6) + 1;
+  diceimg.src = `dice-${diceroll}.png`;
+  winMessageContent.parentNode.replaceChild(diceimg, winMessageContent)
+})
