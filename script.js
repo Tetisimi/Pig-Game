@@ -25,14 +25,18 @@ const winner = document.querySelector('.final')
 
 
 const winMessage = function () {
-  // let winMessageContent = document.createElement('h1');
-  // winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
-  // diceimg.parentNode.replaceChild(winMessageContent, diceimg);
+
+/* Not fully functional
+  let winMessageContent = document.createElement('h1');
+  winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
+  diceimg.parentNode.replaceChild(winMessageContent, diceimg);
+*/
+  // Alternative
   winner.classList.remove('final')
   winner.textContent = `🎉Player ${activePlayer + 1} Wins!`
   diceimg.classList.add('final')
 };
- x
+
 let currentScore = 0;
 let activePlayer = 0;
 let gip = true;
