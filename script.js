@@ -90,9 +90,19 @@ btnHold.addEventListener('click', function () {
   }
 });
 
-// btnNew.addEventListener('click', function () {
-//   window.location.reload();
-// });
-
 btnNew.addEventListener('click', function () {
-})
+  window.location.reload();
+});
+
+// btnNew.addEventListener('click', function () {
+score0e.textContent = 0;
+score1e.textContent = 0;
+current0e.textContent = 0;
+current1e.textContent = 0;
+document
+  .querySelector(`.player--${activePlayer}`)
+  .classList.remove('player--winner');
+document
+  .querySelector(`.player--${activePlayer}`)
+  .classList.remove('player--active');
+// })
