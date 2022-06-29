@@ -95,7 +95,4 @@ btnHold.addEventListener('click', function () {
 // });
 
 btnNew.addEventListener('click', function () {
-  const diceroll = Math.trunc(Math.random() * 6) + 1;
-  diceimg.src = `dice-${diceroll}.png`;
-  reset()
 })
