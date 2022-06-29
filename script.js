@@ -24,6 +24,15 @@ const current1e = document.getElementById('current--1');
 const winner = document.querySelector('.final')
 
 
+
+const switchPlayer = function () {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  player0e.classList.toggle('player--active');
+  player1e.classList.toggle('player--active');
+};
+
 const winMessage = function () {
 
 /* Not fully functional
@@ -37,25 +46,29 @@ const winMessage = function () {
   diceimg.classList.add('final')
 };
 
-let currentScore = 0;
-let activePlayer = 0;
-let gip = true;
+const gameReset = function () {
+  // Starting conditions
 
-const switchPlayer = function () {
-  document.getElementById(`current--${activePlayer}`).textContent = 0;
-  currentScore = 0;
-  activePlayer = activePlayer === 0 ? 1 : 0;
-  player0e.classList.toggle('player--active');
-  player1e.classList.toggle('player--active');
-};
+  const scores = [0, 0];
+  gip = true
+  activePlayer = 0
+  diceimg.classList.add('hidden');
 
-const scores = [0, 0];
+  score0e.textContent = 0;
+  score1e.textContent = 0;
+  current0e.textContent = 0;
+  current1e.textContent = 0;
 
-// Starting conditions
+  player0e.classList.remove('player--winner')
+  player1e.classList.remove('player--winner')
+  player0e.classList.add('player--active')
+  player1e.classList.remove('player--active')
 
-score0e.textContent = 0;
-score1e.textContent = 0;
-diceimg.classList.add('hidden');
+  winner.classList.add('final')
+  diceimg.classList.remove('final')
+}
+
+
 
 btnRoll.addEventListener('click', function () {
   if (gip) {
@@ -100,22 +113,9 @@ btnHold.addEventListener('click', function () {
   }
 });
 
+
+btnNew.addEventListener('click', function () {
+});
 // btnNew.addEventListener('click', function () {
 //   window.location.reload();
 // });
-
-btnNew.addEventListener('click', function () {
-  score0e.textContent = 0;
-  score1e.textContent = 0;
-  current0e.textContent = 0;
-  current1e.textContent = 0;
-  gip = true
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--winner');
-  document
-    .querySelector(`.player--${activePlayer}`)
-    .classList.remove('player--active');
-  winner.classList.add('final')
-  diceimg.classList.remove('final')
-});
