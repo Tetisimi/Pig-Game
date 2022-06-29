@@ -21,13 +21,16 @@ const current0e = document.getElementById('current--0');
 
 const current1e = document.getElementById('current--1');
 
+const winner = document.querySelector('.final')
+
 
 const winMessage = function () {
   // let winMessageContent = document.createElement('h1');
   // winMessageContent.innerHTML = `🎉Player ${activePlayer + 1} Wins!`;
   // diceimg.parentNode.replaceChild(winMessageContent, diceimg);
-
-  
+  winner.classList.remove('final')
+  winner.textContent = `🎉Player ${activePlayer + 1} Wins!`
+  diceimg.classList.add('final')
 };
 
 let currentScore = 0;
@@ -102,11 +105,13 @@ btnNew.addEventListener('click', function () {
   score1e.textContent = 0;
   current0e.textContent = 0;
   current1e.textContent = 0;
+  gip = true
   document
     .querySelector(`.player--${activePlayer}`)
     .classList.remove('player--winner');
   document
     .querySelector(`.player--${activePlayer}`)
     .classList.remove('player--active');
-  isReset = true
+  winner.classList.add('final')
+  diceimg.classList.remove('final')
 });
